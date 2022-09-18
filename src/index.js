@@ -37,12 +37,12 @@ function initializeCountries(countries) {
   for (let i = 0; i < countries.length; i += 1) {
     const stats = {
       countryName: countries[i].name,
-      countryCapital: countries[i].capital,
-      countryPopupaltion: countries[i].population,
-      countryFlagsSvg: countries[i].flags.svg,
-      countryLanguages: countries[i].languages,
+      Capital: countries[i].capital,
+      Popupaltion: countries[i].population,
+      Flags: countries[i].flags.svg,
+      Languages: countries[i].languages,
     };
-    stats.countryLanguages = stats.countryLanguages[0].nativeName;
+    stats.Languages = stats.Languages[0].nativeName;
 
     if (countries.length > MIN_LIMIT && countries.length < MAX_LIMIT) {
       getCoutriesListResult(stats);
@@ -58,28 +58,28 @@ function resetHtml(clearHtml) {
   clearHtml.innerHTML = '';
 }
 
-function getCoutriesListResult({ countryName, countryFlagsSvg }) {
+function getCoutriesListResult({ countryName, Flags }) {
   refs.list.insertAdjacentHTML(
     'beforeend',
-    `<li style='display: flex; gap: 10px'><img src=" ${countryFlagsSvg}" alt="Country Flag" width="36px" height='24px'><span> ${countryName}</span></li>`
+    `<li style='display: inline-flex; gap: 10px'><img src=" ${Flags}" alt="Country Flag" width="36px" height='24px'><span> ${countryName}</span></li>`
   );
   refs.list.style.listStyleType = 'none';
 }
 
 function getCountryCardResult({
   countryName,
-  countryCapital,
-  countryPopupaltion,
-  countryFlagsSvg,
-  countryLanguages,
+  Capital,
+  Popupaltion,
+  Flags,
+  Languages,
 }) {
   refs.card.insertAdjacentHTML(
     'beforeend',
     `<ul style="list-style-type: none" >
-  <li style='display: flex; align-items: center; gap: 10px'><img src="${countryFlagsSvg}" alt="Country Flag" height='24px' width="36px"></img><span style="font-size: 30px  "><b> ${countryName}</b></span></li>
-    <li><span><b>Capital:</b> ${countryCapital}</span></li>
-    <li><span><b>Population</b>: ${countryPopupaltion}</span></li>
-    <li><span><b>Languages</b>: ${countryLanguages}</span></li>
+  <li style='display: flex; align-items: center; gap: 10px'><img src="${Flags}" alt="Country Flag" height='24px' width="36px"></img><span style="font-size: 30px  "><b> ${countryName}</b></span></li>
+    <listyle='display: inline-flex'><span><b>Capital:</b> ${Capital}</span></li>
+    <li><span><b>Population</b>: ${Popupaltion}</span></li>
+    <li><span><b>Languages</b>: ${Languages}</span></li>
   </ul>`
   );
 }

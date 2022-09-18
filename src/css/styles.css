@@ -24,3 +24,7 @@ body {
   flex-direction: column;
   gap: 10px;
 }
+
+body > div > ul {
+  padding: 10px;
+}
