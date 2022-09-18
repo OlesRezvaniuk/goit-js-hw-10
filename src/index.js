@@ -61,7 +61,7 @@ function resetHtml(clearHtml) {
 function getCoutriesListResult({ countryName, countryFlagsSvg }) {
   refs.list.insertAdjacentHTML(
     'beforeend',
-    `<li style='display: flex; gap: 10px'><img src=" ${countryFlagsSvg}" alt="Country Flag" width="25px"><span> ${countryName}</span></li>`
+    `<li style='display: flex; gap: 10px'><img src=" ${countryFlagsSvg}" alt="Country Flag" width="36px" height='24px'><span> ${countryName}</span></li>`
   );
   refs.list.style.listStyleType = 'none';
 }
@@ -76,7 +76,7 @@ function getCountryCardResult({
   refs.card.insertAdjacentHTML(
     'beforeend',
     `<ul style="list-style-type: none" >
-  <li style='display: flex; align-items: center; gap: 10px'><img src="${countryFlagsSvg}" alt="Country Flag" height='20px' width="auto"></img><span style="font-size: 30px  "><b> ${countryName}</b></span></li>
+  <li style='display: flex; align-items: center; gap: 10px'><img src="${countryFlagsSvg}" alt="Country Flag" height='24px' width="36px"></img><span style="font-size: 30px  "><b> ${countryName}</b></span></li>
     <li><span><b>Capital:</b> ${countryCapital}</span></li>
     <li><span><b>Population</b>: ${countryPopupaltion}</span></li>
     <li><span><b>Languages</b>: ${countryLanguages}</span></li>
