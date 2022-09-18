@@ -35,21 +35,20 @@ function initializeCountries(countries) {
   }
 
   for (let i = 0; i < countries.length; i += 1) {
-    const countriesStats = {
+    const stats = {
       countryName: countries[i].name,
       countryCapital: countries[i].capital,
       countryPopupaltion: countries[i].population,
       countryFlagsSvg: countries[i].flags.svg,
       countryLanguages: countries[i].languages,
     };
-    countriesStats.countryLanguages =
-      countriesStats.countryLanguages[0].nativeName;
+    stats.countryLanguages = stats.countryLanguages[0].nativeName;
 
     if (countries.length > MIN_LIMIT && countries.length < MAX_LIMIT) {
-      getCoutriesListResult(countriesStats);
+      getCoutriesListResult(stats);
       resetHtml(refs.card);
     } else if (countries.length === MIN_LIMIT) {
-      getCountryCardResult(countriesStats);
+      getCountryCardResult(stats);
       resetHtml(refs.list);
     }
   }
@@ -62,7 +61,7 @@ function resetHtml(clearHtml) {
 function getCoutriesListResult({ countryName, countryFlagsSvg }) {
   refs.list.insertAdjacentHTML(
     'beforeend',
-    `<li><img src=" ${countryFlagsSvg}" alt="Country Flag" width="25px"><span> ${countryName}</span></li>`
+    `<li style='display: flex; gap: 10px'><img src=" ${countryFlagsSvg}" alt="Country Flag" width="25px"><span> ${countryName}</span></li>`
   );
   refs.list.style.listStyleType = 'none';
 }
@@ -77,7 +76,7 @@ function getCountryCardResult({
   refs.card.insertAdjacentHTML(
     'beforeend',
     `<ul style="list-style-type: none" >
-  <li><img src="${countryFlagsSvg}" alt="Country Flag" width="40px"></img><span style="font-size: 30px  "><b> ${countryName}</b></span></li>
+  <li style='display: flex; align-items: center; gap: 10px'><img src="${countryFlagsSvg}" alt="Country Flag" height='20px' width="auto"></img><span style="font-size: 30px  "><b> ${countryName}</b></span></li>
     <li><span><b>Capital:</b> ${countryCapital}</span></li>
     <li><span><b>Population</b>: ${countryPopupaltion}</span></li>
     <li><span><b>Languages</b>: ${countryLanguages}</span></li>
